@@ -48,6 +48,11 @@ if (process.env.NODE_ENV === 'development') {
 /*
   Routes
 */
+app.get('/', function (req, res) {
+  res.status(200).send({
+    message: 'Express backend server'
+  });
+});
 app.all('*', (req, res, next) => {
     next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
